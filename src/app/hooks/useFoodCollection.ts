@@ -1,5 +1,5 @@
 "use client";
-import PocketBase from "pocketbase";
+import { pb } from "@/pocketbase";
 import { useState, useEffect } from "react";
 
 type RecordModel = {
@@ -16,8 +16,6 @@ type Recipe = {
 };
 
 export type RecipeModel = RecordModel & Recipe;
-
-export const pb = new PocketBase("http://127.0.0.1:8090");
 
 function useFoodCollection(collection: string) {
   const [data, setData] = useState([] as RecipeModel[]);
