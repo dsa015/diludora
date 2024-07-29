@@ -13,7 +13,7 @@ const FoodRecipe = async ({ params }: { params: { foodId: string } }) => {
   return (
     <div>
       <h1>{params.foodId}</h1>
-      <Image src={img} alt={rec.name} width={250} height={150} />
+      <Image src={img} alt={rec.name} width={400} height={250} />
       <h2>Ingredients for {params.foodId}</h2>
       <ul>
         {ing.map((item) => (
