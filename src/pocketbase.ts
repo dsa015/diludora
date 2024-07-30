@@ -4,9 +4,11 @@ export const pb = new PocketBase("http://127.0.0.1:8090");
 export interface Recipe extends RecordModel {
   id: string;
   name: string;
+  displayName: string;
   description: string;
   instruction: string;
   image: string;
+  ingredient: string;
 }
 
 export interface Ingredient extends RecordModel {
@@ -27,15 +29,6 @@ export async function getRecipeByName(name: string): Promise<Recipe> {
     filter: `name = '${name}'`,
   });
   return recipes[0] as Recipe;
-}
-
-export async function getIngredientsByRecipeId(
-  recipeId: string
-): Promise<Ingredient[]> {
-  const ingredients = await pb.collection("ingredients").getFullList({
-    filter: `recipeId ~ '${recipeId}'`,
-  });
-  return ingredients as Ingredient[];
 }
 
 export default async function getImageToRecipe(
