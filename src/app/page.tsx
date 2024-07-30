@@ -1,6 +1,6 @@
-import FoodCategory from "./components/food-category/FoodCategory";
-import NavigationBar from "./components/NavigationBar";
-import FoodGrid from "./food/FoodGrid";
+import FoodCategory from "../components/FoodCategory";
+import NavigationBar from "../components/NavigationBar";
+import FoodGrid from "../components/FoodGrid";
 
 const Home = async () => {
   return (

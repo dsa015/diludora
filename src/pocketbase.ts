@@ -1,6 +1,7 @@
 import PocketBase, { RecordModel } from "pocketbase";
 
-export const pb = new PocketBase("http://127.0.0.1:8090");
+export const API_URL = "https://lingam-delights.fly.dev";
+export const pb = new PocketBase(API_URL);
 export interface Recipe extends RecordModel {
   id: string;
   name: string;
@@ -36,6 +37,6 @@ export default async function getImageToRecipe(
   recipeId: string
 ) {
   const image: Recipe = await pb.collection("recipes").getOne(recipeId);
-  const fileUrl = `http://127.0.0.1:8090/api/files/${collectionId}/${recipeId}/${image.image}`;
+  const fileUrl = `${API_URL}/api/files/${collectionId}/${recipeId}/${image.image}`;
   return fileUrl;
 }
