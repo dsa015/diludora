@@ -5,7 +5,6 @@ import FoodGrid from "../components/FoodGrid";
 const Home = async () => {
   return (
     <div>
-      <NavigationBar />
       <FoodGrid />
       <FoodCategory />
     </div>

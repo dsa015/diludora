@@ -1,7 +1,6 @@
 import PocketBase, { RecordModel } from "pocketbase";
 
-export const API_URL = "https://lingam-delights.fly.dev";
-export const pb = new PocketBase(API_URL);
+export const pb = new PocketBase("https://lingam-delights.fly.dev");
 export interface Recipe extends RecordModel {
   id: string;
   name: string;
@@ -12,31 +11,35 @@ export interface Recipe extends RecordModel {
   ingredient: string;
 }
 
-export interface Ingredient extends RecordModel {
-  id: string;
-  ingredient: string;
-  recipeRelation: string;
-  amount: number;
-  unit: string;
-}
-
 export async function fetchRecipes() {
   const recipesList = await pb.collection("recipes").getList(1, 50);
   return recipesList.items as (RecordModel & Recipe)[];
 }
 
-export async function getRecipeByName(name: string): Promise<Recipe> {
-  const recipes = await pb.collection("recipes").getFullList({
-    filter: `name = '${name}'`,
-  });
-  return recipes[0] as Recipe;
+export async function getRecipeByName(name: string): Promise<Recipe | null> {
+  try {
+    const recipes = await pb.collection("recipes").getFullList({
+      filter: `name = '${name}'`,
+    });
+    if (recipes.length === 0) return null
+    return recipes[0] as Recipe;
+  } catch(error) {
+    console.error("Error fetching recipes by name", error)
+    return null
+  }
 }
 
-export default async function getImageToRecipe(
-  collectionId: string,
+export async function getFoodCategory(category: string) {
+  const foodCategories = await pb.collection('recipes').getFullList({
+    filter: `foodCategory = '${category}'`
+  })
+  return foodCategories as Recipe[]
+}
+
+export async function getImageToRecipe(
   recipeId: string
 ) {
   const image: Recipe = await pb.collection("recipes").getOne(recipeId);
-  const fileUrl = `${API_URL}/api/files/${collectionId}/${recipeId}/${image.image}`;
+  const fileUrl = pb.files.getUrl(image, image.image)
   return fileUrl;
 }

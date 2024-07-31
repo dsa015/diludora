@@ -9,7 +9,7 @@ const NavigationBar = () => {
         justifyContent: "space-between",
       }}
     >
-      <h1 onClick={() => (window.location.href = "/")}>
+      <h1 style={{cursor: "pointer"}}onClick={() => (window.location.href = "/")}>
         Lingam bites (kanskje logo istedenfor)
       </h1>
       <nav>
@@ -20,10 +20,10 @@ const NavigationBar = () => {
             gap: "1rem",
           }}
         >
-          <li>
+          <li key={1}>
             <a href="/about">About</a>
           </li>
-          <li>
+          <li key={2}>
             <a href="/recipes">Recipes</a>
           </li>
         </ul>
