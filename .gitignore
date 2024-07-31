@@ -9,6 +9,12 @@
 # testing
 /coverage
 
+#local pb stuff
+/pb_data
+/pb_migrations
+pocketbase
+fly.toml
+
 # next.js
 /.next/
 /out/
