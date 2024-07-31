@@ -1,18 +1,27 @@
 .container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  background-color: rgb(244, 239, 208);
+  background-color: lightgoldenrodyellow;
   padding-top: 1rem;
-  
-  img {
-    border: 8px solid white;
-    border-radius: 1rem;
-  }
-  
-  a {
-    color: black;
-    text-decoration: none;
+  position: relative;
+
+  .marquee {
+    display: flex;
+    gap: 1rem;
+    animation: slide 20s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+    }
   }
 
+  .marqueeItem {
+    flex-shrink: 0; /* Prevent shrinking of items */
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  } 100% {
+    transform: translateX(-100%)
+  }
 }

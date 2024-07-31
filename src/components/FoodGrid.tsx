@@ -1,28 +1,43 @@
 import Image from "next/image";
 import styles from "./FoodGrid.module.scss";
 import Link from "next/link";
-import { getImageToRecipe,fetchRecipes } from "@/pocketbase";
+import { fetchRecipes } from "@/pocketbase";
 
 const FoodGrid = async () => {
   const recipes = await fetchRecipes();
-  const img = await getImageToRecipe(recipes[0].id)
+  const url = "https://lingam-delights.fly.dev/api/files";
 
   return (
-    <>
     <div className={styles.container}>
-      {recipes.map((food) => (
-        <Link key={food.id} href={`/${food.name}`}>
-          <Image
-            src={img}
-            alt=""
-            width={300}
-            height={300}
-            />
-          <p>{food.displayName}</p>
-        </Link>
-      ))}
+      <div className={styles.marquee}>
+        {recipes.map((food) => (
+          <div className={styles.marqueeItem} key={food.id}>
+            <Link key={food.id} href={`/${food.name}`}>
+              <Image
+                src={`${url}/${food.collectionId}/${food.id}/${food.image}`}
+                alt=""
+                width={300}
+                height={300}
+              />
+              <p>{food.displayName}</p>
+            </Link>
+          </div>
+        ))}
+        {recipes.map((food) => (
+          <div className={styles.marqueeItem} key={food.id + "duplicate"}>
+            <Link key={food.id} href={`/${food.name}`}>
+              <Image
+                src={`${url}/${food.collectionId}/${food.id}/${food.image}`}
+                alt=""
+                width={300}
+                height={300}
+              />
+              <p>{food.displayName}</p>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
-      </>
   );
 };
 

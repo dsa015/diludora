@@ -10,9 +10,9 @@ const FoodRecipe = async ({ params }: { params: { foodId: string } }) => {
 
   return (
     <div>
-      <h1>{params.foodId}</h1>
+      <h1>{rec?.displayName}</h1>
       <Image src={img} alt={rec ? rec?.name : ""} width={400} height={250} />
-      <h2>Ingredients for {params.foodId}</h2>
+      <h2>Ingredients for {rec?.displayName}</h2>
       <ul>
         {ingredients?.map((e) => (
           <li key={e}>{e}</li>
