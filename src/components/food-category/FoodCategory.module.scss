@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  .foodUl {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    & .category {
+      transition: transform 0.4s;
+      &:hover {
+        transition: transform 0.2s;
+        transform: scale(1.03);
+      }
+      & img {
+        border-radius: 5rem;
+      }
+      & a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}

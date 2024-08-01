@@ -1,0 +1,27 @@
+.container {
+  background-color: #fafad2;
+  padding-top: 1rem;
+  position: relative;
+  text-align: center;
+
+  .item {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    & img {
+      border-radius: 1rem;
+      //filter: drop-shadow(2px 3px 4px rgb(0, 0, 0, .5));
+      box-shadow: 2px 3px 10px rgb(0, 0, 0, 0.5);
+      transition: transform 0.4s;
+      &:hover {
+        transition: transform 0.2s;
+        transform: scale(1.03);
+      }
+    }
+    & a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}

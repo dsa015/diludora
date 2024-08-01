@@ -12,8 +12,8 @@ export interface Recipe extends RecordModel {
 }
 
 export async function fetchRecipes() {
-  const recipesList = await pb.collection("recipes").getList(1, 50);
-  return recipesList.items as (RecordModel & Recipe)[];
+  const recipesList = await pb.collection("recipes").getFullList();
+  return recipesList as (RecordModel & Recipe)[];
 }
 
 export async function getRecipeByName(name: string): Promise<Recipe | null> {
