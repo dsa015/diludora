@@ -1,0 +1,23 @@
+.navBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 12rem 1rem 12rem;
+  font-size: x-large;
+
+  & .navList {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+
+    & a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  & .logoContainer {
+    display: flex;
+    gap: 1rem;
+  }
+}

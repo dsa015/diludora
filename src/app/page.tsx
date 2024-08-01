@@ -2,13 +2,13 @@ import FoodCategory from "../components/food-category/FoodCategory";
 import FoodGrid from "../components/food-grid/FoodGrid";
 import { SearchComponent } from "@/components/search-component/SearchComponent";
 
-const Home = async () => {
+const Home = () => {
   return (
-    <div>
+    <main>
       <FoodGrid />
       <FoodCategory />
       <SearchComponent />
-    </div>
+    </main>
   );
 };
 
