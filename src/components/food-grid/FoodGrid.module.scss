@@ -1,8 +1,29 @@
 .container {
-  background-color: #fafad2;
-  padding-top: 1rem;
   position: relative;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #405d72;
+
+  & .customBorder {
+    position: relative;
+    padding: 1rem;
+    width: 84vw;
+
+    & span {
+      background-color: #405d72;
+      color: #fff8f3;
+      letter-spacing: 0.5rem;
+      padding: 1rem;
+    }
+    &::after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid #fff8f3;
+      margin-top: -34px;
+    }
+  }
 
   .item {
     display: flex;
@@ -25,7 +46,7 @@
       gap: 1rem;
       padding-block: 1rem;
       text-decoration: none;
-      color: black;
+      color: #fff8f3;
     }
   }
 }

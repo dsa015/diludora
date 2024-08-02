@@ -9,6 +9,11 @@ const FoodGrid = async () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.customBorder}>
+        <h2>
+          <span>Top picks</span>
+        </h2>
+      </div>
       <div className={styles.item}>
         {recipes.map((food) => (
           <Link key={food.id} href={`/${food.name}`}>

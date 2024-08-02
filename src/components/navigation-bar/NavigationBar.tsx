@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./NavigationBar.module.scss";
 import { Roboto } from "next/font/google";
+import { SearchComponent } from "../search-component/SearchComponent";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "500" });
 
@@ -15,10 +16,10 @@ const NavigationBar = () => {
     >
       <Link href={"/"}>
         <Image
-          src={"/LingamBitesSmall.png"}
+          src={"/lb.png"}
           alt="logo for website"
-          height={50}
-          width={200}
+          width={300}
+          height={150}
         />
       </Link>
       <ul className={styles.navList}>
@@ -31,13 +32,13 @@ const NavigationBar = () => {
         <li>
           <Link href="/stores">STORES</Link>
         </li>
+        <SearchComponent />
       </ul>
-
-      <div className={styles.logoContainer}>
+      {/* <div className={styles.logoContainer}>
         <div>logo</div>
         <div>logo</div>
         <div>logo</div>
-      </div>
+      </div> */}
     </nav>
   );
 };

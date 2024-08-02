@@ -1,13 +1,14 @@
 .navBarContainer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   font-size: x-large;
-  border-bottom: 1px solid darkgray;
+  background-color: #fff8f3;
 
   & .navList {
     display: flex;
     list-style: none;
+    align-items: center;
     gap: 1rem;
     padding-inline-start: 0;
     & a {

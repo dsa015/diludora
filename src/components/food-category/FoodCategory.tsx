@@ -4,10 +4,10 @@ import Image from "next/image";
 
 const foodCategories = ["Main-dishes", "Soties", "Drinks", "Desserts"];
 const images = [
-  "/food.png",
-  "/mutton-rolls.jpg",
-  "/drinks.png",
-  "/Desserts.jpg",
+  "/food-categories/dinner.png",
+  "/food-categories/sorties.png",
+  "/food-categories/drinks.png",
+  "/food-categories/dessert.png",
 ];
 
 const lst = foodCategories.map((c, i) => ({
@@ -18,18 +18,24 @@ const lst = foodCategories.map((c, i) => ({
 const FoodCategory = () => {
   return (
     <div className={styles.container}>
-      <h2>Browse categories</h2>
+      <div className={styles.customBorder}>
+        <h2>
+          <span>Browse categories</span>
+        </h2>
+      </div>
       <div className={styles.foodUl}>
         {lst.map((category) => (
-          <Link href={`/recipes/${category.category}`}>
-            <Image
-              src={category.image}
-              alt={category.image}
-              width={150}
-              height={150}
-            />
-            <p>{category.category}</p>
-          </Link>
+          <>
+            <Link href={`/recipes/${category.category}`}>
+              <Image
+                src={category.image}
+                alt={category.image}
+                width={150}
+                height={150}
+              />
+              <p>{category.category}</p>
+            </Link>
+          </>
         ))}
       </div>
     </div>

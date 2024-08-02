@@ -1,8 +1,26 @@
 .container {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  margin: auto;
   text-align: center;
+  background-color: #fff8f3;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  & .customBorder {
+    padding: 1rem;
+
+    & span {
+      background-color: #fff8f3;
+      letter-spacing: 0.5rem;
+      padding: 1rem;
+    }
+    &::after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid #121212;
+      margin-top: -34px;
+    }
+  }
 
   .foodUl {
     list-style: none;
@@ -12,7 +30,6 @@
     margin: 0; /* Remove default list margins */
     & img {
       transition: transform 0.4s;
-      border-radius: 5rem;
       &:hover {
         transition: transform 0.2s;
         transform: scale(1.05);

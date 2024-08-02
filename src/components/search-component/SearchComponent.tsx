@@ -1,4 +1,5 @@
 //import { fetchRecipes } from "@/pocketbase
+import { SearchIcon } from "./search";
 import styles from "./SearchComponent.module.scss";
 
 export const SearchComponent = async () => {
@@ -6,17 +7,19 @@ export const SearchComponent = async () => {
 
   return (
     <div className={styles.searchContainer}>
-      <h2>Looking for something?</h2>
       {/* <p>Browse through {recipes.length} recipes</p> */}
       <input
         type="text"
-        placeholder="Search"
+        name="search"
+        placeholder="Search recipes"
         style={{
-          padding: "1rem",
+          padding: "0.5rem",
           width: "24rem",
-          margin: "auto",
         }}
       />
+      <span className={styles.icon}>
+        <SearchIcon />
+      </span>
     </div>
   );
 };
