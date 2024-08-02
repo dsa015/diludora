@@ -1,3 +1,7 @@
+# Lingam Bites!
+![image](https://github.com/user-attachments/assets/13517b47-7ab8-49eb-8193-97b3377aff5a)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
