@@ -9,20 +9,18 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
-
-    & .category {
+    margin: 0; /* Remove default list margins */
+    & img {
       transition: transform 0.4s;
+      border-radius: 5rem;
       &:hover {
         transition: transform 0.2s;
-        transform: scale(1.03);
+        transform: scale(1.05);
       }
-      & img {
-        border-radius: 5rem;
-      }
-      & a {
-        text-decoration: none;
-        color: black;
-      }
+    }
+    & a {
+      text-decoration: none;
+      color: black;
     }
   }
 }

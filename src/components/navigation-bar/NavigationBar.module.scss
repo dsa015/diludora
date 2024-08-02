@@ -1,18 +1,23 @@
 .navBarContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 1rem 12rem 1rem 12rem;
   font-size: x-large;
+  border-bottom: 1px solid darkgray;
 
   & .navList {
     display: flex;
     list-style: none;
     gap: 1rem;
-
+    padding-inline-start: 0;
     & a {
-      text-decoration: none;
+      text-decoration-color: transparent;
       color: black;
+      transition: 0.5s ease;
+
+      &:hover {
+        text-decoration-color: black;
+      }
     }
   }
 

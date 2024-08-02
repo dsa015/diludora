@@ -4,11 +4,11 @@ import { SearchComponent } from "@/components/search-component/SearchComponent";
 
 const Home = () => {
   return (
-    <main>
+    <div>
       <FoodGrid />
       <FoodCategory />
       <SearchComponent />
-    </main>
+    </div>
   );
 };
 

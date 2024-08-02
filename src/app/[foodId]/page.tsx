@@ -1,4 +1,4 @@
-import {getImageToRecipe,getRecipeByName } from "@/pocketbase";
+import { getImageToRecipe, getRecipeByName } from "@/pocketbase";
 import Image from "next/image";
 
 // the text content should be from a database or a file?

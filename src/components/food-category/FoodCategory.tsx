@@ -19,21 +19,19 @@ const FoodCategory = () => {
   return (
     <div className={styles.container}>
       <h2>Browse categories</h2>
-      <ul className={styles.foodUl}>
+      <div className={styles.foodUl}>
         {lst.map((category) => (
-          <li key={category.category} className={styles.category}>
-            <Link href={`/recipes/${category.category}`}>
-              <Image
-                src={category.image}
-                alt={category.image}
-                width={150}
-                height={150}
-              />
-            </Link>
+          <Link href={`/recipes/${category.category}`}>
+            <Image
+              src={category.image}
+              alt={category.image}
+              width={150}
+              height={150}
+            />
             <p>{category.category}</p>
-          </li>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
