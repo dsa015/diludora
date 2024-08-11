@@ -21,7 +21,7 @@ const FoodGrid = async () => {
     <div className={styles.container}>
       <div className={styles.customBorder}>
         <h2>
-          <span>Top picks</span>
+          <span> Todays recipes</span>
         </h2>
       </div>
       <div style={{ width: "100%", height: "100%" }}>

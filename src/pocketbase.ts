@@ -12,7 +12,9 @@ export interface Recipe extends RecordModel {
 }
 
 export async function fetchRecipes() {
-  const recipesList = await pb.collection("recipes").getFullList();
+  const recipesList = await pb
+    .collection("recipes")
+    .getFullList({ requestKey: null });
   return recipesList as (RecordModel & Recipe)[];
 }
 
@@ -20,26 +22,28 @@ export async function getRecipeByName(name: string): Promise<Recipe | null> {
   try {
     const recipes = await pb.collection("recipes").getFullList({
       filter: `name = '${name}'`,
+      requestKey: null,
     });
-    if (recipes.length === 0) return null
+    if (recipes.length === 0) return null;
     return recipes[0] as Recipe;
-  } catch(error) {
-    console.error("Error fetching recipes by name", error)
-    return null
+  } catch (error) {
+    console.error("Error fetching recipes by name", error);
+    return null;
   }
 }
 
 export async function getFoodCategory(category: string) {
-  const foodCategories = await pb.collection('recipes').getFullList({
-    filter: `foodCategory = '${category}'`
-  })
-  return foodCategories as Recipe[]
+  const foodCategories = await pb.collection("recipes").getFullList({
+    filter: `foodCategory = '${category}'`,
+    requestKey: null,
+  });
+  return foodCategories as Recipe[];
 }
 
-export async function getImageToRecipe(
-  recipeId: string
-) {
-  const image: Recipe = await pb.collection("recipes").getOne(recipeId);
-  const fileUrl = pb.files.getUrl(image, image.image)
+export async function getImageToRecipe(recipeId: string) {
+  const image: Recipe = await pb
+    .collection("recipes")
+    .getOne(recipeId, { requestKey: null });
+  const fileUrl = pb.files.getUrl(image, image.image);
   return fileUrl;
 }

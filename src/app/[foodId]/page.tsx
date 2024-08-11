@@ -12,6 +12,7 @@ const FoodRecipe = async ({ params }: { params: { foodId: string } }) => {
     <div>
       <h1>{rec?.displayName}</h1>
       <Image src={img} alt={rec ? rec?.name : ""} width={400} height={250} />
+      <p>{rec?.description}</p>
       <h2>Ingredients for {rec?.displayName}</h2>
       <ul>
         {ingredients?.map((e) => (

@@ -1,3 +1,7 @@
 export const Footer = () => {
-  return <h1 style={{ textAlign: "center" }}>Contact us!</h1>;
+  return (
+    <div style={{ backgroundColor: "red" }}>
+      <h1 style={{ textAlign: "center", margin: 0 }}>Contact us!</h1>;
+    </div>
+  );
 };

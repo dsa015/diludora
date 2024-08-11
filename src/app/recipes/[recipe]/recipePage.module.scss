@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  transition: 0.5s ease;
+
+  & .listItem {
+    border-radius: 5px;
+    transition: 0.5s ease;
+  }
+  & .listItem:hover {
+    transition: 0.3s ease;
+    transform: scale(1.05);
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px white;
+  }
+}
