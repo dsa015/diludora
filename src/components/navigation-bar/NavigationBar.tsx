@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./NavigationBar.module.scss";
 import { Roboto } from "next/font/google";
-import { SearchComponent } from "../search-component/SearchComponent";
+//import { SearchComponent } from "../search-component/SearchComponent";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "500" });
 
@@ -32,7 +32,10 @@ const NavigationBar = () => {
         <li>
           <Link href="/stores">STORES</Link>
         </li>
-        <SearchComponent />
+        <li>
+          <Link href="/login">LOGIN</Link>
+        </li>
+        {/* <SearchComponent /> */}
       </ul>
       {/* <div className={styles.logoContainer}>
         <div>logo</div>

@@ -47,3 +47,23 @@ export async function getImageToRecipe(recipeId: string) {
   const fileUrl = pb.files.getUrl(image, image.image);
   return fileUrl;
 }
+
+export async function createUser(email: string, password: string) {
+  try {
+    await pb
+      .collection("users")
+      .create({ email, password, passwordConfirm: password });
+  } catch (error) {
+    console.error("Error registering user", error);
+    return null;
+  }
+}
+
+export async function loginUser(email: string, password: string) {
+  try {
+    await pb.collection("users").authWithPassword(email, password);
+  } catch (error) {
+    console.error("Error logging in user", error);
+    return null;
+  }
+}
