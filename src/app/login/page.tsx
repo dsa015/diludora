@@ -26,7 +26,14 @@ const LoginPage = () => {
           position: "relative",
         }}
       >
-        <Image src={imageSrc} fill alt="" />;
+        <Image
+          src={imageSrc}
+          priority
+          fill
+          objectFit="cover"
+          alt="image of food"
+        />
+        ;
       </div>
       <div className={styles.container}>
         <form className={styles.form}>

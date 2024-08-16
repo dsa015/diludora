@@ -10,10 +10,11 @@
 .form {
   display: flex;
   flex-direction: column;
+  border-radius: 0.5rem;
   gap: 2rem;
-  //border: 1px solid black;
   padding: 5rem;
   min-height: 24.6875rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
   .createOrSignInButton {
     border: none;
@@ -26,8 +27,21 @@
   }
 
   & > input {
+    padding: 0.5rem;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgrey;
+
+    // some styles for the input field when it is valid or invalid
+    &:not(:placeholder-shown):valid {
+      outline: 1px solid green;
+    }
+    &:not(:placeholder-shown):invalid {
+      outline: 1px solid red;
+    }
+    &:focus:invalid,
+    &:focus:valid {
+      outline: 1px solid orange;
+    }
   }
 
   .submitButton {
