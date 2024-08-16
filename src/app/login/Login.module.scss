@@ -2,17 +2,49 @@
   display: flex;
   justify-content: center;
   padding: 2rem;
+  align-items: center;
+  min-height: 50%;
+  justify-content: flex-end;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  border: 1px solid black;
-  padding: 1rem;
+  gap: 2rem;
+  //border: 1px solid black;
+  padding: 5rem;
+  min-height: 24.6875rem;
+
+  .createOrSignInButton {
+    border: none;
+    background: none;
+    width: 16rem;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  & > input {
+    border: none;
+    border-bottom: 1px solid black;
+  }
+
+  .submitButton {
+    cursor: pointer;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+  }
 }
 
 .buttonContainer {
   display: flex;
   justify-content: space-between;
+
+  & > button {
+    border: none;
+    background-color: transparent;
+  }
 }
