@@ -1,14 +1,18 @@
 import { getImageToRecipe, getRecipeByName } from "@/pocketbase";
 import Image from "next/image";
-import styles from "./FoodId.module.scss";
+//import styles from "./FoodId.module.scss";
+import { Instruction } from "@/app/[foodId]/instruction-container/Instruction";
+import { Ingredient } from "@/app/[foodId]/ingredients/Ingredient";
 
-// the text content should be from a database or a file?
 const FoodRecipe = async ({ params }: { params: { foodId: string } }) => {
+  // TODO refactor all this
   const rec = await getRecipeByName(params.foodId);
   const img = rec ? await getImageToRecipe(rec.id) : "";
-  const ingredients = rec?.ingredient.split("\n");
-  const instruction = rec?.instruction.split(".");
-  const nutrition = rec?.nutrition.split("\n");
+  const ingredients = rec?.ingredient.split("\n") ?? [];
+  const instruction = rec?.instruction.split(".") ?? [];
+  const nutrition = rec?.nutrition.split("\n") ?? [];
+  const displayName = rec?.displayNam ?? "";
+  const isNotEmpty = instruction.length > 0;
 
   return (
     <div
@@ -55,60 +59,12 @@ const FoodRecipe = async ({ params }: { params: { foodId: string } }) => {
           paddingBlock: "2rem",
         }}
       >
-        <div>
-          <h2>Ingredients for {rec?.displayName}</h2>
-          <ol
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-              padding: "0",
-              listStyleType: "none",
-            }}
-          >
-            {ingredients?.map((e) => (
-              <li key={e}>{e}</li>
-            ))}
-          </ol>
-          <div
-            style={{
-              backgroundColor: "#efeeee",
-              maxWidth: "300px",
-              borderRadius: "1rem",
-              padding: "1rem",
-            }}
-          >
-            <h2>Nutritions</h2>
-            <ul
-              style={{
-                listStyleType: "none",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-              }}
-            >
-              {/* justify it space between */}
-              {nutrition?.map((e) => (
-                <li key={e}>{e}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div>
-          <h2>Steps</h2>
-          <ol
-            className={styles.stepsList}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-            }}
-          >
-            {instruction?.map((e) => (
-              <li key={e}>{e}</li>
-            ))}
-          </ol>
-        </div>
+        <Instruction
+          ingredients={ingredients}
+          displayName={displayName}
+          nutrition={nutrition}
+        />
+        {isNotEmpty && <Ingredient instruction={instruction} />}
       </div>
     </div>
   );
