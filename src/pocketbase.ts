@@ -9,6 +9,7 @@ export interface Recipe extends RecordModel {
   instruction: string;
   image: string;
   ingredient: string;
+  nutrition: string;
 }
 
 export async function fetchRecipes() {
