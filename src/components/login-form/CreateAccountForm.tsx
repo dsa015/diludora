@@ -1,9 +1,13 @@
 "use client";
 import { useState } from "react";
 
-export const CreateAccountForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export const CreateAccountForm = ({
+  setEmail,
+  setPassword,
+}: {
+  setEmail: (email: string) => void;
+  setPassword: (password: string) => void;
+}) => {
   return (
     <>
       <input

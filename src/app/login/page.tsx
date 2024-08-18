@@ -10,6 +10,8 @@ import Image from "next/image";
 const LoginPage = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   return (
     <div
@@ -25,15 +27,19 @@ const LoginPage = () => {
 
       <div className={styles.container}>
         <form className={styles.form}>
-          {isLogin ? <CreateAccountForm /> : <LoginAccountForm />}
+          {!isLogin ? (
+            <LoginAccountForm setEmail={setEmail} setPassword={setPassword} />
+          ) : (
+            <CreateAccountForm setEmail={setEmail} setPassword={setPassword} />
+          )}
           <button
             className={styles.submitButton}
             type="button"
-            // onClick={() => {
-            //   !isLogin ?
-            //   createUser(email, password) :
-            //   loginUser(email,password)
-            // }}
+            onClick={() => {
+              isLogin
+                ? createUser(email, password)
+                : loginUser(email, password);
+            }}
           >
             Continue
           </button>

@@ -1,9 +1,13 @@
 "use client";
 import { useState } from "react";
 
-export const LoginAccountForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export const LoginAccountForm = ({
+  setEmail,
+  setPassword,
+}: {
+  setEmail: (email: string) => void;
+  setPassword: (password: string) => void;
+}) => {
   return (
     <>
       <input

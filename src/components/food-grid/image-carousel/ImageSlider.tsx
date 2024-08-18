@@ -22,10 +22,9 @@ export const ImageSlider = ({ images, names }: ImageSliderProps) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setNextImage();
-    }, 5000);
+    const interval = setInterval(() => {}, 5000);
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imageIndex]);
 
   return (
