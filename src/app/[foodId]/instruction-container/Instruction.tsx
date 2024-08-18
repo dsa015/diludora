@@ -1,7 +1,9 @@
+import { Nutrients } from "@/pocketbase";
+
 type InstructionProps = {
   ingredients: string[];
   displayName: string;
-  nutrition: string[];
+  nutrition: Nutrients[];
 };
 
 export const Instruction = ({
@@ -40,11 +42,22 @@ export const Instruction = ({
             display: "flex",
             flexDirection: "column",
             gap: "1rem",
+            padding: "0",
           }}
         >
           {/* justify it space between? */}
           {nutrition?.map((e) => (
-            <li key={e}>{e}</li>
+            <li
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                borderBottom: "1px solid lightgrey",
+              }}
+              key={e.name}
+            >
+              <span>{e.name}</span>
+              <span>{e.value}</span>
+            </li>
           ))}
         </ul>
       </div>

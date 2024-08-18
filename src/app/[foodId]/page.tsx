@@ -10,10 +10,10 @@ const FoodRecipe = async ({ params }: { params: { foodId: string } }) => {
   const img = rec ? await getImageToRecipe(rec.id) : "";
   const ingredients = rec?.ingredient.split("\n") ?? [];
   const instruction = rec?.instruction.split(".") ?? [];
-  const nutrition = rec?.nutrition.split("\n") ?? [];
   const displayName = rec?.displayName ?? "";
   const description = rec?.description ?? "";
   const isNotEmpty = instruction.length > 0;
+  const nutrition = rec?.nutrition ?? [];
 
   return (
     <div

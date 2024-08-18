@@ -1,6 +1,11 @@
 import PocketBase, { RecordModel } from "pocketbase";
 
 export const pb = new PocketBase("https://lingam-delights.fly.dev");
+
+export type Nutrients = {
+  name: string;
+  value: string;
+};
 export interface Recipe extends RecordModel {
   id: string;
   name: string;
@@ -9,7 +14,7 @@ export interface Recipe extends RecordModel {
   instruction: string;
   image: string;
   ingredient: string;
-  nutrition: string;
+  nutrition: Nutrients[];
 }
 
 export async function fetchRecipes() {
