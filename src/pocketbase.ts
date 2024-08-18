@@ -19,7 +19,7 @@ export async function fetchRecipes() {
   return recipesList as (RecordModel & Recipe)[];
 }
 
-export async function getRecipeByName(name: string): Promise<Recipe | null> {
+export async function getRecipeByName(name: string) {
   try {
     const recipes = await pb.collection("recipes").getFullList({
       filter: `name = '${name}'`,
