@@ -19,22 +19,10 @@ const LoginPage = () => {
         padding: "4rem",
       }}
     >
-      <div
-        style={{
-          width: "700px",
-          height: "700px",
-          position: "relative",
-        }}
-      >
-        <Image
-          src={imageSrc}
-          priority
-          fill
-          objectFit="cover"
-          alt="image of food"
-        />
-        ;
+      <div className={styles.imageContainer}>
+        <Image src={imageSrc} fill objectFit="cover" alt="image of food" />;
       </div>
+
       <div className={styles.container}>
         <form className={styles.form}>
           {isLogin ? <CreateAccountForm /> : <LoginAccountForm />}

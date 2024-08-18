@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ImageSlider.module.scss";
 import { LeftArrow, RightArrow } from "./arrows/Arrows";
 import Link from "next/link";
@@ -21,6 +21,13 @@ export const ImageSlider = ({ images, names }: ImageSliderProps) => {
     setImageIndex((imageIndex - 1 + images.length) % images.length);
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNextImage();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [imageIndex]);
+
   return (
     <div className={styles.imageSliderContainer}>
       <div className={styles.imageContainer}>
@@ -31,6 +38,7 @@ export const ImageSlider = ({ images, names }: ImageSliderProps) => {
             style={{ translate: `${-100 * imageIndex}%` }}
             alt={image.alt}
             className={styles.images}
+            loading="lazy"
           />
         ))}
       </div>

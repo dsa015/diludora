@@ -7,6 +7,12 @@
   justify-content: flex-end;
 }
 
+.imageContainer {
+  width: 700px;
+  height: 700px;
+  animation: fadeIn 0.5s ease-in-out;
+  position: relative;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -15,6 +21,8 @@
   padding: 5rem;
   min-height: 24.6875rem;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  animation: fadeIn 0.5s ease-in-out;
 
   .createOrSignInButton {
     border: none;
@@ -60,5 +68,14 @@
   & > button {
     border: none;
     background-color: transparent;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
