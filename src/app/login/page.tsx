@@ -1,5 +1,5 @@
 "use client";
-import { createUser, loginUser } from "@/pocketbase";
+import { createUser, loginUser, pb } from "@/pocketbase";
 import { useState } from "react";
 import styles from "./Login.module.scss";
 import { LoginAccountForm } from "@/components/login-form/LoginAccountForm";
@@ -8,7 +8,6 @@ import imageSrc from "../../../public/splittetImage.png";
 import Image from "next/image";
 
 const LoginPage = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -39,6 +38,9 @@ const LoginPage = () => {
               isLogin
                 ? createUser(email, password)
                 : loginUser(email, password);
+              if (pb.authStore.isValid) {
+                window.location.href = "/";
+              }
             }}
           >
             Continue
