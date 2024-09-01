@@ -2,6 +2,34 @@
 "use client";
 import { addRecipeHandler, fetchRecipes } from "@/pocketbase";
 import { useState } from "react";
+import styles from "./Drawer.module.scss";
+
+type DrawerProps = {
+  isOpen: boolean;
+  children: React.ReactNode;
+  direction?: "Left" | "Right";
+  onClose: () => void;
+};
+
+const Drawer = ({
+  isOpen,
+  children,
+  onClose,
+  direction = "Right",
+}: DrawerProps) => {
+  const classNames = `${styles.Drawer} ${styles[direction]} ${
+    isOpen ? styles.Open : ""
+  }`;
+
+  return (
+    <div className={classNames}>
+      <div className={styles.Close} onClick={onClose}>
+        X
+      </div>
+      <div className={styles.Content}>{children}</div>
+    </div>
+  );
+};
 
 const UserRecipeForm = () => {
   const [recipeName, setRecipeName] = useState("");
@@ -56,7 +84,11 @@ const AddRecipe = () => {
     <>
       <div>
         <button onClick={() => setIsOpen(!isOpen)}>Add recipe!</button>
-        {isOpen && <UserRecipeForm />}
+        {isOpen && (
+          <Drawer isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
+            <UserRecipeForm />
+          </Drawer>
+        )}
       </div>
     </>
   );
