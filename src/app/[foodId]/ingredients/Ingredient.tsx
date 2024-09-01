@@ -1,6 +1,9 @@
+"use client";
+import { useState } from "react";
 import styles from "./Ingredient.module.scss";
 
 export const Ingredient = ({ instruction }: { instruction: string[] }) => {
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <div>
       <h2>Steps</h2>
@@ -12,8 +15,25 @@ export const Ingredient = ({ instruction }: { instruction: string[] }) => {
           gap: "1rem",
         }}
       >
-        {instruction?.map((e) => (
-          <li key={e}>{e}</li>
+        {instruction?.map((e, i) => (
+          <li
+            key={e}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              gap: "1rem",
+            }}
+          >
+            <span key={i} className={isChecked ? styles.instruction : ""}>
+              {e}
+            </span>
+            <input
+              onClick={() => setIsChecked(!isChecked)}
+              type="checkbox"
+              name="asd"
+              id="dsa"
+            />
+          </li>
         ))}
       </ol>
     </div>

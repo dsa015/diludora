@@ -23,18 +23,18 @@ const NavigationBar = () => {
         />
       </Link>
       <ul className={styles.navList}>
-        <li>
+        {/* <li>
           <Link href="/about">ABOUT</Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/recipes">RECIPES</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/stores">STORES</Link>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <Link href="/login">LOGIN</Link>
-        </li>
+        </li> */}
         {/* <SearchComponent /> */}
       </ul>
       {/* <div className={styles.logoContainer}>

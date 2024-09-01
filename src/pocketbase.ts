@@ -73,3 +73,27 @@ export async function loginUser(email: string, password: string) {
     return null;
   }
 }
+
+export async function addRecipeHandler(
+  name: string,
+  description: string,
+  instruction: string,
+  ingredient: string
+) {
+  if (!name || !description || !instruction || !ingredient) {
+    console.error("Please fill in all fields");
+    return null;
+  }
+  try {
+    await pb.collection("recipes").create({
+      name,
+      description,
+      instruction,
+      ingredient,
+    });
+    console.log("Recipe added successfully");
+  } catch (error) {
+    console.error("Error adding recipe", error);
+    return null;
+  }
+}
