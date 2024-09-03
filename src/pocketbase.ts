@@ -77,10 +77,11 @@ export async function loginUser(email: string, password: string) {
 export async function addRecipeHandler(
   name: string,
   description: string,
+  category: string,
   instruction: string,
   ingredient: string
 ) {
-  if (!name || !description || !instruction || !ingredient) {
+  if (!name || !description || !category || !instruction || !ingredient) {
     console.error("Please fill in all fields");
     return null;
   }
@@ -88,6 +89,7 @@ export async function addRecipeHandler(
     await pb.collection("recipes").create({
       name,
       description,
+      category,
       instruction,
       ingredient,
     });
