@@ -74,6 +74,10 @@ export async function loginUser(email: string, password: string) {
   }
 }
 
+export function logoutUser() {
+  pb.authStore.clear();
+}
+
 export async function addRecipeHandler(
   name: string,
   description: string,
@@ -81,18 +85,21 @@ export async function addRecipeHandler(
   instruction: string,
   ingredient: string
 ) {
+  const data = {
+    name,
+    description,
+    category,
+    instruction,
+    ingredient,
+    user: pb.authStore.model?.id,
+  };
   if (!name || !description || !category || !instruction || !ingredient) {
     console.error("Please fill in all fields");
     return null;
   }
+
   try {
-    await pb.collection("recipes").create({
-      name,
-      description,
-      category,
-      instruction,
-      ingredient,
-    });
+    await pb.collection("recipes").create(data);
     console.log("Recipe added successfully");
   } catch (error) {
     console.error("Error adding recipe", error);

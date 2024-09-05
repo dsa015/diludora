@@ -16,7 +16,6 @@ export const UserRecipeForm = () => {
         flexDirection: "column",
         gap: "1rem",
         padding: "1rem",
-        maxWidth: "23rem",
       }}
     >
       <input

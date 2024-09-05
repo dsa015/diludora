@@ -5,7 +5,7 @@ const nextConfig = {
       {
         protocol: "https",
         // can be wildcard for now, change to pocketbase when deployed it
-        hostname: "**",
+        hostname: "https://lingam-delights.fly.dev",
       },
     ],
   },

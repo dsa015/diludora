@@ -1,5 +1,5 @@
 //import { SearchComponent } from "@/components/search-component/SearchComponent";
-import { AddRecipe } from "@/components/add-recipe/AddRecipe";
+//import { AddRecipe } from "@/components/add-recipe/AddRecipe";
 import { fetchRecipes } from "@/pocketbase";
 
 const Recipes = async () => {
@@ -20,7 +20,7 @@ const Recipes = async () => {
       </ul>
       {/* <h2>Search through recipes!</h2>
       <SearchComponent /> */}
-      <AddRecipe />
+      {/* <AddRecipe /> */}
     </>
   );
 };
