@@ -67,7 +67,10 @@ export async function createUser(email: string, password: string) {
 
 export async function loginUser(email: string, password: string) {
   try {
-    await pb.collection("users").authWithPassword(email, password);
+    const authData = await pb
+      .collection("users")
+      .authWithPassword(email, password);
+    return authData;
   } catch (error) {
     console.error("Error logging in user", error);
     return null;
@@ -81,25 +84,27 @@ export function logoutUser() {
 export async function addRecipeHandler(
   name: string,
   description: string,
-  category: string,
+  foodCategory: string,
   instruction: string,
   ingredient: string
 ) {
   const data = {
     name,
     description,
-    category,
+    foodCategory,
     instruction,
     ingredient,
-    user: pb.authStore.model?.id,
   };
-  if (!name || !description || !category || !instruction || !ingredient) {
+  if (!name || !description || !foodCategory || !instruction || !ingredient) {
     console.error("Please fill in all fields");
     return null;
   }
 
   try {
-    await pb.collection("recipes").create(data);
+    await pb.collection("recipes").create({
+      ...data,
+      displayName: name,
+    });
     console.log("Recipe added successfully");
   } catch (error) {
     console.error("Error adding recipe", error);

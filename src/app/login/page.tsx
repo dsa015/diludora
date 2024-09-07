@@ -38,9 +38,6 @@ const LoginPage = () => {
               isLogin
                 ? createUser(email, password)
                 : loginUser(email, password);
-              if (pb.authStore.isValid) {
-                window.location.href = "/";
-              }
             }}
           >
             Continue
