@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Drawer } from "../drawer/Drawer";
 import { UserRecipeForm } from "../user-recipe-form/UserRecipeForm";
+import { UserRecipeFormInfo } from "../user-recipe-form/UserRecipeFormInfo";
 
 export const AddRecipe = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +24,7 @@ export const AddRecipe = () => {
           <div>
             <Drawer isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
               <UserRecipeForm />
+              <UserRecipeFormInfo />
             </Drawer>
           </div>
         )}
