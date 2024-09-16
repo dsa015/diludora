@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./NavigationBar.module.scss";
 import { Roboto } from "next/font/google";
@@ -14,34 +13,26 @@ const NavigationBar = () => {
         fontFamily: roboto.style.fontFamily,
       }}
     >
-      <Link href={"/"}>
-        <Image
-          src={"/lb.png"}
-          alt="logo for website"
-          width={300}
-          height={150}
-        />
-      </Link>
+      <div className={styles.legend}>
+        <Link href={"/"}>
+          <h1 className={styles.legend}>DiluDora</h1>
+        </Link>
+      </div>
       <ul className={styles.navList}>
-        {/* <li>
+        <li>
           <Link href="/about">ABOUT</Link>
-        </li> */}
+        </li>
         <li>
           <Link href="/recipes">RECIPES</Link>
         </li>
-        {/* <li>
+        <li>
           <Link href="/stores">STORES</Link>
-        </li> */}
-        {/* <li>
+        </li>{" "}
+        <li>
           <Link href="/login">LOGIN</Link>
-        </li> */}
+        </li>
         {/* <SearchComponent /> */}
       </ul>
-      {/* <div className={styles.logoContainer}>
-        <div>logo</div>
-        <div>logo</div>
-        <div>logo</div>
-      </div> */}
     </nav>
   );
 };

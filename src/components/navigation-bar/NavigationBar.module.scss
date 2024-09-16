@@ -1,9 +1,21 @@
 .navBarContainer {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   font-size: x-large;
   padding-inline: 10rem;
+
+  & .legend {
+    font-size: 3rem;
+    margin: 0;
+    // a nice font that makes it look like a logo
+    font-family: "Dancing Script", fantasy;
+
+    & a {
+      text-decoration-color: transparent;
+      color: black;
+    }
+  }
 
   & .navList {
     display: flex;
@@ -20,10 +32,5 @@
         text-decoration-color: black;
       }
     }
-  }
-
-  & .logoContainer {
-    display: flex;
-    gap: 1rem;
   }
 }

@@ -25,7 +25,7 @@ const FoodGrid = async () => {
         </h2>
       </div>
       <div style={{ width: "100%", height: "100%" }}>
-        <ImageSlider names={names} images={imgUrls} />
+        <ImageSlider names={names} images={imgUrls.slice(0, 6)} />
       </div>
     </div>
   );

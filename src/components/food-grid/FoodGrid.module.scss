@@ -13,16 +13,27 @@
     width: 84vw;
 
     & span {
-      background-color: #405d72;
       color: #fff8f3;
       letter-spacing: 0.5rem;
-      padding: 1rem;
     }
-    &::after {
-      content: "";
-      display: block;
-      border-bottom: 1px solid #fff8f3;
-      margin-top: -34px;
-    }
+    // custom border across word
+    // & span {
+    //   background-color: #405d72;
+    //   color: #fff8f3;
+    //   letter-spacing: 0.5rem;
+    //   padding: 1rem;
+    // }
+    // &::after {
+    //   content: "";
+    //   display: block;
+    //   border-bottom: 1px solid #fff8f3;
+    //   margin-top: -34px;
+    // }
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .customBorder {
+    font-size: small;
   }
 }

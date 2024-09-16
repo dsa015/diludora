@@ -7,18 +7,19 @@
   padding-bottom: 4rem;
   & .customBorder {
     padding: 1rem;
-
-    & span {
-      background-color: #fff8f3;
-      letter-spacing: 0.5rem;
-      padding: 1rem;
-    }
-    &::after {
-      content: "";
-      display: block;
-      border-bottom: 1px solid #121212;
-      margin-top: -34px;
-    }
+    letter-spacing: 0.5rem;
+    // the custom border across word
+    // & span {
+    //   background-color: #fff8f3;
+    //   letter-spacing: 0.5rem;
+    //   padding: 1rem;
+    // }
+    // // &::after {
+    // //   content: "";
+    // //   display: block;
+    // //   border-bottom: 1px solid #121212;
+    // //   margin-top: -34px;
+    // // }
   }
 
   .foodUl {
@@ -38,5 +39,14 @@
       text-decoration: none;
       color: black;
     }
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .customBorder {
+    font-size: small;
+  }
+  .foodUl {
+    flex-flow: row wrap;
   }
 }
