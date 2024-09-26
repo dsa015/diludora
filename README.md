@@ -1,4 +1,4 @@
-# Lingam Bites!
+# DiluDora!
 
 A website that just shows different recipes ive come across and trying to learn!
 
