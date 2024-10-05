@@ -85,39 +85,6 @@
   }
 }
 
-.imageButton {
-  all: unset;
-  position: absolute;
-  display: block;
-  top: 0;
-  bottom: 0;
-  padding: 1rem;
-  transition: background-color 0.1s ease;
-  &:not(:hover) > * {
-    transition: transform 0.4s;
-  }
-  &:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  &:hover > * {
-    fill: #fefefe;
-    transition: transform 0.2s;
-    transform: scale(1.75);
-    //animation: scaler 0.3s ease;
-  }
-
-  &:focus-visible {
-    outline: auto;
-  }
-}
-
-@keyframes scaler {
-  50% {
-    scale: 1.4 0.6;
-  }
-}
-
 @media screen and (max-width: 40rem) {
   .imageText {
     display: none;

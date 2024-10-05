@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import styles from "./ImageSlider.module.scss";
-import { LeftArrow, RightArrow } from "./arrows/Arrows";
 import Link from "next/link";
 import { ImageAndUrl } from "../FoodGrid";
+import { Buttons } from "./buttons/Buttons";
 
 type ImageSliderProps = {
   images: ImageAndUrl[];
@@ -44,22 +44,10 @@ export const ImageSlider = ({ images, names }: ImageSliderProps) => {
       <span className={styles.imageText}>
         <Link href={`/${names[imageIndex]}`}>{name[imageIndex]}</Link>
       </span>
-      <button
-        aria-label="View Previous Image"
-        className={styles.imageButton}
-        style={{ left: 0 }}
-        onClick={() => setPreviousImage()}
-      >
-        <LeftArrow />
-      </button>
-      <button
-        aria-label="View Next Image"
-        className={styles.imageButton}
-        style={{ right: 0 }}
-        onClick={() => setNextImage()}
-      >
-        <RightArrow />
-      </button>
+      <Buttons
+        setPreviousImage={setPreviousImage}
+        setNextImage={setNextImage}
+      />
       <div className={styles.sliderButtonContainer}>
         {images.map((_, index) => (
           <button
