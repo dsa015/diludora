@@ -3,8 +3,8 @@ import { AddRecipe } from "@/components/add-recipe/AddRecipe";
 import { fetchRecipes } from "@/pocketbase";
 
 const Recipes = async () => {
-  const fetchRecipe = await fetchRecipes();
-  const recipes = fetchRecipe.map((e) => e.displayName);
+  const data = await fetchRecipes();
+
   return (
     <>
       {/* Maybe like an infinity loader here? */}
@@ -14,8 +14,8 @@ const Recipes = async () => {
         search through them
       </p>
       <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe}>{recipe}</li>
+        {data.map((recipe) => (
+          <li key={recipe.id}>{recipe.displayName}</li>
         ))}
       </ul>
       {/* <h2>Search through recipes!</h2>
