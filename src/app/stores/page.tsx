@@ -41,8 +41,8 @@ const Stores = async () => {
           few of them here, where I go
         </p>
         <p>
-          Remember to follow on discounts! It's super important. Down here are
-          this weeks discounts for each store
+          Remember to follow on discounts! It&apos;s super important. Down here
+          are this weeks discounts for each store
         </p>
       </section>
       <StoreList names={storeNames} links={storeLinks} images={storeImages} />
