@@ -4,17 +4,6 @@ body {
   padding: 0;
 }
 
-/* use viewport-relative units to cover page fully */
-body,
-html {
-  width: 100vw;
-  height: 100vw;
-}
 body {
   background-color: #fff8f3;
-}
-
-/* include border and padding in element width and height */
-* {
-  box-sizing: border-box;
 }
