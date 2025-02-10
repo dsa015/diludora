@@ -1,7 +1,6 @@
 # DiluDora!
 
-A website that just shows different recipes ive come across and trying to learn!
-
+A website that just shows different recipes I have come across and trying to learn!
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
