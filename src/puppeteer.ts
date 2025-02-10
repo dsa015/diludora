@@ -7,7 +7,10 @@ export type ScrapedStore = {
 };
 
 export const getListOfStores = async () => {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ["--no-sandbox"],
+  });
   const page = await browser.newPage();
 
   // Navigate to the website
