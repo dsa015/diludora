@@ -3,7 +3,7 @@ import puppeteer from "puppeteer";
 export type ScrapedStore = {
   names: string[];
   links: string[];
-  images: string[];
+  images?: string[];
 };
 
 export const getListOfStores = async () => {

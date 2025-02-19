@@ -1,36 +1,23 @@
 import { getListOfStores, ScrapedStore } from "@/puppeteer";
+import { fetchStores } from "@/scrape";
 
-const StoreList = ({ names, links, images }: ScrapedStore) => {
-  const storeToLink = names.map((name, index) => {
-    return {
-      [name]: `https://mattilbud.no${links[index]}`,
-    };
-  });
-
+const StoreList = ({ names, links }: { names: string[]; links: string[] }) => {
   return (
     <ul>
-      {storeToLink.map((store, index) => {
-        const storeName = Object.keys(store)[0];
-        const storeLink = Object.values(store)[0];
-        return (
-          <li key={index}>
-            <a href={storeLink} target="_blank" rel="noreferrer">
-              <img src={images[index]} alt={storeName} />
-              <h2>{storeName}</h2>
-            </a>
-          </li>
-        );
-      })}
+      {names.map((name, index) => (
+        <li key={name}>
+          <a href={links[index]}>{name}</a>
+        </li>
+      ))}
     </ul>
   );
 };
 
 const Stores = async () => {
-  const stores = await getListOfStores();
-  // extract the store names
-  const storeNames = stores.map((store) => store.name);
-  const storeLinks = stores.map((store) => store.link);
-  const storeImages = stores.map((store) => store.img);
+  const s = await fetchStores();
+  const { data } = s;
+  const storeNames = data.map((store) => store.name);
+  const storeLinks = data.map((store) => store.website);
 
   return (
     <>
@@ -45,9 +32,8 @@ const Stores = async () => {
           are this weeks discounts for each store
         </p>
       </section>
-      <StoreList names={storeNames} links={storeLinks} images={storeImages} />
+      <StoreList names={storeNames} links={storeLinks} />
     </>
   );
 };
-
 export default Stores;
