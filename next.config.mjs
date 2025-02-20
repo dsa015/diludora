@@ -4,7 +4,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        // can be wildcard for now, change to pocketbase when deployed it
         hostname: "lingam-delights.fly.dev",
       },
     ],

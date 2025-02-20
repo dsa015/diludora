@@ -1,4 +1,3 @@
-import { getListOfStores, ScrapedStore } from "@/puppeteer";
 import { fetchStores } from "@/scrape";
 
 const StoreList = ({ names, links }: { names: string[]; links: string[] }) => {
