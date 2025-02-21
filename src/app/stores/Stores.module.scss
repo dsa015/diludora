@@ -1,0 +1,21 @@
+.storeList {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+
+  li {
+    list-style: none;
+  }
+
+  & .store {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// wrap in column when screen is less than 790px
+@media screen and (max-width: 790px) {
+  .storeList {
+    flex-direction: column;
+  }
+}
