@@ -1,22 +1,38 @@
 import { fetchStores } from "@/scrape";
+import Image from "next/image";
+import styles from "./Stores.module.scss";
 
-const StoreList = ({ names, links }: { names: string[]; links: string[] }) => {
+type StoresILike = {
+  name: string;
+  website: string;
+  logo: string;
+  discounts?: string;
+};
+
+const StoreList = ({ storesNearMe }: { storesNearMe: StoresILike[] }) => {
   return (
-    <ul>
-      {names.map((name, index) => (
-        <li key={name}>
-          <a href={links[index]}>{name}</a>
+    <ul className={styles.storeList}>
+      {storesNearMe.map((store, index) => (
+        <li key={index}>
+          <a href={store.website} className={styles.store}>
+            <Image src={store.logo} width={100} height={100} alt={store.name} />
+            {store.name}
+          </a>
+          {store.discounts && (
+            <a href={store.discounts}>Discounts this week!</a>
+          )}
         </li>
       ))}
     </ul>
   );
 };
 
+// etilbudsavis
+//AHlwO6mR - coop
+//vXzfg4hB - rema
+
 const Stores = async () => {
-  const s = await fetchStores();
-  const { data } = s;
-  const storeNames = data.map((store) => store.name);
-  const storeLinks = data.map((store) => store.website);
+  const stores = await fetchStores();
 
   return (
     <>
@@ -31,7 +47,7 @@ const Stores = async () => {
           are this weeks discounts for each store
         </p>
       </section>
-      <StoreList names={storeNames} links={storeLinks} />
+      <StoreList storesNearMe={stores} />
     </>
   );
 };
