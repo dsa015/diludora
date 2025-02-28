@@ -3,7 +3,10 @@ import { useState } from "react";
 import styles from "./Ingredient.module.scss";
 
 export const Ingredient = ({ instruction }: { instruction: string[] }) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState<null | number>(null);
+  const handleToggle = (i: number) =>
+    i ? setIsChecked(i) : setIsChecked(null);
+
   return (
     <div>
       <h2>Steps</h2>
@@ -24,11 +27,11 @@ export const Ingredient = ({ instruction }: { instruction: string[] }) => {
               gap: "1rem",
             }}
           >
-            <span key={i} className={isChecked ? styles.instruction : ""}>
+            <span key={i} className={isChecked === i ? styles.instruction : ""}>
               {e}
             </span>
             <input
-              onClick={() => setIsChecked(!isChecked)}
+              onClick={() => handleToggle(i)}
               type="checkbox"
               name="asd"
               id="dsa"
