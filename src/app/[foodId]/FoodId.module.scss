@@ -1,0 +1,12 @@
+.foodRecipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instructionContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 62.5rem;
+  padding-block: 2rem;
+}

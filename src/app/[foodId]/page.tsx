@@ -1,41 +1,29 @@
-import { getImageToRecipe, getRecipeByName } from "@/pocketbase";
-//import styles from "./FoodId.module.scss";
+"use client";
+import styles from "./FoodId.module.scss";
 import { Instruction } from "@/app/[foodId]/instruction-container/Instruction";
 import { Ingredient } from "@/app/[foodId]/ingredients/Ingredient";
 import { RecipeLegend } from "./recipe-legend/RecipeLegend";
+import useRecipes from "@/hooks/useRecipe";
 
-const FoodRecipe = async ({ params }: { params: { foodId: string } }) => {
-  // TODO refactor all this
-  const rec = await getRecipeByName(params.foodId);
-  const img = rec ? await getImageToRecipe(rec.id) : "";
-  const ingredients = rec?.ingredient.split("\n") ?? [];
-  const instruction = rec?.instruction.split(".") ?? [];
-  const displayName = rec?.displayName ?? "";
-  const description = rec?.description ?? "";
-  const isNotEmpty = instruction.length > 0;
-  const nutrition = rec?.nutrition ?? [];
+const FoodRecipe = ({ params }: { params: { foodId: string } }) => {
+  const {
+    img,
+    displayName,
+    description,
+    ingredients,
+    nutrition,
+    instruction,
+    isNotEmpty,
+  } = useRecipes(params.foodId);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <div className={styles.foodRecipe}>
       <RecipeLegend
         imageSrc={img}
         displayName={displayName}
         description={description}
       />
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          maxWidth: "1000px",
-          paddingBlock: "2rem",
-        }}
-      >
+      <div className={styles.instructionContainer}>
         <Instruction
           ingredients={ingredients}
           displayName={displayName}

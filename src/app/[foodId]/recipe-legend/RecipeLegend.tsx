@@ -1,9 +1,10 @@
 import Image from "next/image";
+import styles from "./RecipeLegend.module.scss";
 
 type RecipeLegendProps = {
-  imageSrc: string;
-  displayName: string;
-  description: string;
+  imageSrc?: string;
+  displayName?: string;
+  description?: string;
 };
 
 export const RecipeLegend = ({
@@ -13,24 +14,13 @@ export const RecipeLegend = ({
 }: RecipeLegendProps) => {
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+      <div className={styles.nameDescription}>
         <h1>{displayName}</h1>
         <p>{description}</p>
       </div>
-      <div
-        style={{
-          width: "1000px",
-          height: "850px",
-          position: "relative",
-        }}
-      >
+      <div className={styles.imgContainer}>
         <Image
-          src={imageSrc}
+          src={imageSrc ?? ""}
           alt={displayName ?? ""}
           // kanskje bruke fill istedenfor
           fill

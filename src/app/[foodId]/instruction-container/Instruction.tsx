@@ -1,9 +1,10 @@
 import { Nutrients } from "@/pocketbase";
+import styles from "./Instruction.module.scss";
 
 type InstructionProps = {
-  ingredients: string[];
-  displayName: string;
-  nutrition: Nutrients[];
+  ingredients?: string[];
+  displayName?: string;
+  nutrition?: Nutrients[];
 };
 
 export const Instruction = ({
@@ -14,47 +15,16 @@ export const Instruction = ({
   return (
     <div>
       <h2>Ingredients for {displayName}</h2>
-      <ol
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          padding: "0",
-          listStyleType: "none",
-        }}
-      >
+      <ol className={styles.ingredientsList}>
         {ingredients?.map((e) => (
           <li key={e}>{e}</li>
         ))}
       </ol>
-      <div
-        style={{
-          backgroundColor: "#efeeee",
-          maxWidth: "300px",
-          borderRadius: "1rem",
-          padding: "1rem",
-        }}
-      >
+      <div className={styles.nutritionContainer}>
         <h2>Nutritions</h2>
-        <ul
-          style={{
-            listStyleType: "none",
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
-            padding: "0",
-          }}
-        >
-          {/* justify it space between? */}
+        <ul className={styles.nutritionList}>
           {nutrition?.map((e) => (
-            <li
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                borderBottom: "1px solid lightgrey",
-              }}
-              key={e.name}
-            >
+            <li className={styles.nutritionItem} key={e.name}>
               <span>{e.name}</span>
               <span>{e.value}</span>
             </li>

@@ -1,0 +1,28 @@
+.ingredientsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.nutritionContainer {
+  background-color: #efeeee;
+  max-width: 300px;
+  border-radius: 1rem;
+  padding: 1rem;
+
+  .nutritionList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+
+    .nutritionItem {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid lightgrey;
+    }
+  }
+}

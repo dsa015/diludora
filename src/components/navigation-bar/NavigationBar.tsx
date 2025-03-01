@@ -4,6 +4,12 @@ import { Roboto } from "next/font/google";
 //import { SearchComponent } from "../search-component/SearchComponent";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "500" });
+const navBarLinks = [
+  { name: "ABOUT", path: "/about" },
+  { name: "RECIPES", path: "/recipes" },
+  { name: "STORES", path: "/stores" },
+  { name: "LOGIN", path: "/login" },
+];
 
 const NavigationBar = () => {
   return (
@@ -19,18 +25,11 @@ const NavigationBar = () => {
         </Link>
       </div>
       <ul className={styles.navList}>
-        <li>
-          <Link href="/about">ABOUT</Link>
-        </li>
-        <li>
-          <Link href="/recipes">RECIPES</Link>
-        </li>
-        <li>
-          <Link href="/stores">STORES</Link>
-        </li>{" "}
-        <li>
-          <Link href="/login">LOGIN</Link>
-        </li>
+        {navBarLinks.map((link) => (
+          <li key={link.name} className={styles.navItem}>
+            <Link href={link.path}>{link.name}</Link>
+          </li>
+        ))}
         {/* <SearchComponent /> */}
       </ul>
     </nav>
