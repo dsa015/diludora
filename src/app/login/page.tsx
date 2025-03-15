@@ -13,13 +13,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "4rem",
-      }}
-    >
+    <div className={styles.loginPage}>
       <div className={styles.imageContainer}>
         <Image src={imageSrc} fill objectFit="cover" alt="image of food" />;
       </div>

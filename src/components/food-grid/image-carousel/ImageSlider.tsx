@@ -4,6 +4,7 @@ import styles from "./ImageSlider.module.scss";
 import Link from "next/link";
 import { ImageAndUrl } from "../FoodGrid";
 import { Buttons } from "./buttons/Buttons";
+import Image from "next/image";
 
 type ImageSliderProps = {
   images: ImageAndUrl[];
@@ -31,13 +32,15 @@ export const ImageSlider = ({ images, names }: ImageSliderProps) => {
     <div className={styles.imageSliderContainer}>
       <div className={styles.imageContainer}>
         {images.map((image) => (
-          <img
+          <Image
             key={image.url}
             src={image.url}
             style={{ translate: `${-100 * imageIndex}%` }}
             alt={image.alt}
             className={styles.images}
             loading="lazy"
+            width={500}
+            height={500}
           />
         ))}
       </div>
